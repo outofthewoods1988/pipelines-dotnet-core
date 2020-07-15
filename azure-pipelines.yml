@@ -12,7 +12,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   ## Add this under variables section in the pipeline
-  azureSubscription: Visual Studio Enterprise – MPN
+  azureSubscription: 'Visual Studio Enterprise – MPN'
   appName: my-app-name01
   vmImageName: 'ubuntu-latest'
 
