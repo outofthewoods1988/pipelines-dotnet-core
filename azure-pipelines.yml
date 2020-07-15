@@ -28,3 +28,6 @@ steps:
     appType: webAppLinux
     appName: $(appName)
     package: $(System.ArtifactsDirectory)/**/*.zip
+    deployToSlotOrASE: true
+    resourceGroupName: '<name of resource group>'
+    slotName: staging
