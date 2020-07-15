@@ -1,16 +1,16 @@
-trigger:
-- master
+ trigger:
+ - master
 
-variables:
-  # Azure service connection established during pipeline creation
-  azureSubscription: <Name of your Azure subscription>
-  appName: <Name of the web app>
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+   variables:
+     # Azure service connection established during pipeline creation
+     azureSubscription: <Name of your Azure subscription>
+     appName: <Name of the web app>
+     # Agent VM image name
+     vmImageName: 'ubuntu-latest'
 
-- task: AzureWebApp@1 # Add this at the end of your file
-  inputs:
-    azureSubscription: <Azure service connection>
-    appType: webAppLinux
-    appName: $(appName)
-    package: $(System.ArtifactsDirectory)/**/*.zip
+   - task: AzureWebApp@1 # Add this at the end of your file
+     inputs:
+       azureSubscription: <Azure service connection>
+       appType: webAppLinux
+       appName: $(appName)
+       package: $(System.ArtifactsDirectory)/**/*.zip
