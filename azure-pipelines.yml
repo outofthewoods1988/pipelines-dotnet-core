@@ -15,17 +15,3 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-
-variables: 
-  ## Add this under variables section in the pipeline
-  azureSubscription: <Name of the Azure subscription>
-  appName: <Name of the Web App>
-
-## Add the below snippet at the end of your pipeline
-- task: AzureWebApp@1
-  displayName: 'Azure Web App Deploy'
-  inputs:
-    azureSubscription: $(azureSubscription)
-    appType: webAppLinux
-    appName: $(appName)
-    package: $(System.ArtifactsDirectory)/**/*.zip
