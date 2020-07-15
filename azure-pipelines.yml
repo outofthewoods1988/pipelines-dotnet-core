@@ -15,3 +15,9 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
+- task: AzureWebApp@1 # Add this at the end of your file
+  inputs:
+    azureSubscription: <Azure service connection>
+    appType: webAppLinux
+    appName: $(appName)
+    package: $(System.ArtifactsDirectory)/**/*.zip
