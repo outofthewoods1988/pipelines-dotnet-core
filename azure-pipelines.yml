@@ -12,8 +12,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
   ## Add this under variables section in the pipeline
-  azureSubscription: <Name of the Azure subscription>
-  appName: <Name of the Web App>
+  azureSubscription: Visual Studio Enterprise – MPN
+  appName: my-app-name01
   vmImageName: 'ubuntu-latest'
 
 steps:
@@ -29,5 +29,5 @@ steps:
     appName: $(appName)
     package: $(System.ArtifactsDirectory)/**/*.zip
     deployToSlotOrASE: true
-    resourceGroupName: '<name of resource group>'
+    resourceGroupName: 'myapp-rg'
     slotName: staging
