@@ -20,6 +20,24 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   
+
+trigger:
+- master
+
+variables:
+  # Azure service connection established during pipeline creation
+  azureSubscription: <Name of your Azure subscription>
+  appName: <Name of the web app>
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+- task: AzureWebApp@1 # Add this at the end of your file
+  inputs:
+    azureSubscription: <Azure service connection>
+    appType: webAppLinux
+    appName: $(appName)
+    package: $(System.ArtifactsDirectory)/**/*.zip
+
 ## Add the below snippet at the end of your pipeline
 - task: AzureWebApp@1
   displayName: 'Azure Web App Deploy'
