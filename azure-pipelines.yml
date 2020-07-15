@@ -14,6 +14,7 @@ variables:
   ## Add this under variables section in the pipeline
   azureSubscription: <Name of the Azure subscription>
   appName: <Name of the Web App>
+  vmImageName: 'ubuntu-latest'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
