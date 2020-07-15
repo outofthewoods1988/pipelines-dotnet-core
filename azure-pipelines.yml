@@ -3,8 +3,8 @@ trigger:
 
 variables:
   # Azure service connection established during pipeline creation
-  azureSubscription: Visual Studio Enterprise – MPN
-  appName: my-app-name01
+  azureSubscription: <Name of your Azure subscription>
+  appName: <Name of the web app>
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
