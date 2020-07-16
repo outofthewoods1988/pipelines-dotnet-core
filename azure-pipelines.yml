@@ -27,7 +27,25 @@ steps:
 - task: AzureWebApp@1
   displayName: 'azure web app deploy'
   inputs:
-    azureSubscription: $(azureSubscription)
+    azureSubscription: 'azure-sub-connection'
+    appType: 'webAppLinux'
     appName: 'my-app-name01'
     package: '$(System.ArtifactsDirectory)/**/*.zip'
-    appType: webAppLinux
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'azure-sub-connection'
+    appType: 'webAppLinux'
+    appName: 'my-app-name01'
+    deployToSlotOrASE: true
+    resourceGroupName: 'myapp-rg'
+    slotName: 'staging'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+- task: AzureAppServiceManage@0
+  inputs:
+    azureSubscription: 'azure-sub-connection'
+    Action: 'Swap Slots'
+    WebAppName: 'my-app-name01'
+    ResourceGroupName: 'myapp-rg'
+    SourceSlot: 'staging'
