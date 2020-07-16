@@ -12,7 +12,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   ## Add this under variables section in the pipeline
-  azureSubscription: my-app-name01
+  azureSubscription: azure-sub-connection
   appName: 'my-app-name01'
   vmImageName: 'ubuntu-latest'
 
