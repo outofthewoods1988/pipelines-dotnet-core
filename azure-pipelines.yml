@@ -24,25 +24,10 @@ steps:
 
 ## Add the below snippet at the end of your pipeline
 
-- task: AzureWebApp@1 # Add this at the end of your file
-  inputs:
-    azureSubscription: my-app-name01
 - task: AzureWebApp@1
+  displayName: 'azure web app deploy'
   inputs:
-    azureSubscription: 'my-app-name01'
-    appType: 'webAppLinux'
+    azureSubscription: $(azureSubscription)
     appName: 'my-app-name01'
     package: '$(System.ArtifactsDirectory)/**/*.zip'
     appType: webAppLinux
-    appName: $(appName)
-    package: $(System.ArtifactsDirectory)/**/*.zip
-- task: AzureWebApp@1
-  displayName: 'Azure Web App Deploy'
-  inputs:
-    azureSubscription: $(azureSubscription)
-    appType: webAppLinux
-    appName: $(appName)
-    package: $(System.ArtifactsDirectory)/**/*.zip
-    deployToSlotOrASE: true
-    resourceGroupName: 'myapp-rg'
-    slotName: staging
