@@ -13,7 +13,7 @@ variables:
   buildConfiguration: 'Release'
   ## Add this under variables section in the pipeline
   azureSubscription: my-app-name01
-  appName: 'my-app-name01'
+  appName: '2296b2f6-38dc-4e44-981c-4ef32f092aab'
   vmImageName: 'ubuntu-latest'
 
 steps:
@@ -28,6 +28,6 @@ steps:
   displayName: 'azure web app deploy'
   inputs:
     azureSubscription: $(azureSubscription)
-    appName: 'my-app-name01'
+    appName: '2296b2f6-38dc-4e44-981c-4ef32f092aab'
     package: '$(System.ArtifactsDirectory)/**/*.zip'
     appType: webAppLinux
